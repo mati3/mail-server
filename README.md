@@ -1,6 +1,6 @@
 ## Install and configure a webmail.
 
-we going to install a service of email web, for it, we need undestad how working.
+we are going to install a web email service, and for it, we need to undestand how is working.
 
 ![image](/img/architecture.png)
 
