@@ -18,7 +18,7 @@ we going to install a service of email web, for it, we need undestad how working
 
 ![image](/img/service_email.png)
 
-### Steps in send / receive mail.
+### Steps in send/receive mail.
 * Alice compose  through her User Agent,  a message addressed to the destination user's email.
 * The computer asks the DNS server for the address of the domain name of your mail server. As we are going to do a local test, we will change our local file to assign host names to IP addresses in /etc/hosts.
 * The message is sent with SMTP to the mail server of the Alice user, in the same way it sends it to the destination mail server.
@@ -26,8 +26,30 @@ we going to install a service of email web, for it, we need undestad how working
 
 ### Tools Used
 
-- MySQL as database.
+- Ubuntu-18.04 as operating systems.
+- VirtualBox to run the operating systems.
+- Vagrant as development environment.
 - Apache2 as HTTP Server, it is open-source and free. It is write in php.
 - RoundCube as Webmail.
-- Dovecot for IMAP and POP3
-- Postfix for SMTP
+- MySQL as database.
+- Dovecot for IMAP and POP3.
+- Postfix for SMTP.
+
+
+
+The first that we have doing is install vagrand and create a file [vagrantfile](Vagrantfile), we have to open the ports that we need to all the protocols using. we give to the virtual machine the IP: 192.168.56.100 
+
+We install in our virtual machine: mysql, apache2, php, roundcube, dovecto, postfix and two user for send email betwen they. [Link to the extens explain](doc/configure.md)
+
+We put in the browser the address of our service 192.168.56.100.
+We enter with the user vagrant.
+
+![image](/img/roundcube_01.png)
+
+We have two users, mati and sammy, mati send an email to sammy:
+
+![image](/img/roundcube_02.png)
+
+We view how sammy to receivent:
+
+![image](/img/roundcube_03.png)
