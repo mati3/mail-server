@@ -1,3 +1,18 @@
+**Install Vagrant:**
+        
+        sudo apt install vagrant
+
+**start vagrant:**
+    
+        mkdir email-server
+        cd email-server
+        vagrant init 
+Copy the file Vagrantfile of this repository
+
+        vagrant up
+        vagrant ssh
+
+        Password: vagrant
 
 **Update the system:** 
 
@@ -69,7 +84,21 @@ sudo systemctl restart apache2
 
 **Configure Apache:**
 
-    sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/roundcube.conf
+    sudo cp /etc/apache2/sites-available/000-default.conf /etc/
+    sudo vi /etc/apache2/sites-available/roundcube.conf
+        ServerName 192.168.56.100
+        ServerAdmin sammy@examplemail.com
+        DocumentRoot /var/www/html/roundcube
+        ErrorLog ${APACHE_LOG_DIR}/roundcube-error.log
+        CustomLog ${APACHE_LOG_DIR}/roundcube-access.log combined
+
+        <Directory /var/www/html/roundcube>
+                Options -Indexes
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+    apache2/sites-available/roundcube.conf
     sudo a2dissite 000-default
     sudo a2ensite roundcube
     sudo a2enmod rewrite
