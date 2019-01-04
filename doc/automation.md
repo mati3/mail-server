@@ -16,7 +16,7 @@
 
 **Run fabric**
 
-    fab -f fabfile.py -H vagrant@192.168.56.101 Install
+    fab -f automation/fabfile.py -H vagrant@192.168.56.101 Install
 
 
 Password: vagrant

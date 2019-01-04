@@ -12,8 +12,8 @@ def Install():
 	run('sudo apt update')
 	run('sudo apt-get install mysql-server -y')
 	run('sudo apt install expect -y')
-	run('cd /vagrant && chmod +x mysql_secure.sh')
-	run('cd /vagrant && ./mysql_secure.sh')
+	run('cd /vagrant/automation && chmod +x mysql_secure.sh')
+	run('cd /vagrant/automation && ./mysql_secure.sh')
 
 	run('sudo apt install apache2 -y ')
 	run('sudo ufw allow imap')
@@ -31,8 +31,8 @@ def Install():
 	run('sudo chown -R www-data:www-data /var/www/html/roundcube')
 	run('sudo chmod -R 775 /var/www/html/roundcube')
 
-	run('cd /vagrant && chmod +x mysql_root.sh')
-	run('cd /vagrant && ./mysql_root.sh') 
+	run('cd /vagrant/automation && chmod +x mysql_root.sh')
+	run('cd /vagrant/automation && ./mysql_root.sh') 
 
 	run('sudo systemctl restart mysql')
 	run('echo "$(expect -c "spawn cd /var/www/html/roundcube && mysql -u roundcube -p roundcubemail < /var/www/html/roundcube/SQL/mysql.initial.sql  expect \"Enter password:\" send \"contraderoundcube\r\"  except eof " )" ') 
