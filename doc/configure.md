@@ -86,8 +86,8 @@ sudo systemctl restart apache2
 
     sudo cp /etc/apache2/sites-available/000-default.conf /etc/
     sudo vi /etc/apache2/sites-available/roundcube.conf
-        ServerName 192.168.56.100
-        ServerAdmin sammy@examplemail.com
+        ServerName 192.168.56.101
+        ServerAdmin examplemail.com
         DocumentRoot /var/www/html/roundcube
         ErrorLog ${APACHE_LOG_DIR}/roundcube-error.log
         CustomLog ${APACHE_LOG_DIR}/roundcube-access.log combined
@@ -112,11 +112,11 @@ sudo systemctl restart apache2
 
     sudo DEBIAN_PRIORITY=low apt-get install postfix
         General type of mail configuration -> Internet site
-        System mail name: examplemail.com
+        System mail name: vagrant.vm
         Root: vagrant
-        Other destinations: myhostname, vagrant.vm, localhost.vm, examplemail.com, mail.examplemail.com, loalhost.examplemail.com, localhost.
+        Other destinations: myhostname, vagrant.vm, localhost.vm, examplemail.com, localhost.
         Force synchronous updates on mail: No
-        local networks: 127.0.0/8[].... por defecto
+        local networks: 192.168.56.101, 127.0.0/8
         Mailbox size limit:0
         Local addres extension character: +
         Intenet protocols to use: all
@@ -134,7 +134,11 @@ service apache2 restart
 
 - **Check environment:** if it has been missing something, it will tell us and it will not let us go to access  to "create config".
 
-- **Create config:** don't forget put the password mySQL-roundcube
+![image](../img/roundcube_05.png)
+
+- **Create config:** don't forget put the password mySQL-roundcube, in "The IMAP host choosen to perform the log-in" put "examplemail.com" and in "smtp_server" put "192.168.56.101"
+
+![image](../img/roundcube_06.png)
 
 - **Test config:** 
 
@@ -146,4 +150,6 @@ service apache2 restart
         Password: vagrant  
         Check login : ok
 
-If everything has gone well, we will be able to put our server (192.168.56.100) in our browser and access it with any of the users that we have created previously..
+![image](../img/roundcube_07.png)
+
+If everything has gone well, we will be able to put our server (192.168.56.101) in our browser and access it with any of the users that we have created previously..
