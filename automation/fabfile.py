@@ -40,8 +40,8 @@ def Install():
 	run('sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/roundcube.conf')
 
 	with ConfigFile('/etc/apache2/sites-available/roundcube.conf', use_sudo = True ) as conf: 
-  		conf.update( '#ServerName www.example.com' , '\tServerName 192.168.56.200' )
-		conf.update( 'ServerAdmin webmaster@localhost' , '\tServerAdmin example.com')
+  		conf.update( '#ServerName www.example.com' , '\tServerName 192.168.56.101' )
+		conf.update( 'ServerAdmin webmaster@localhost' , '\tServerAdmin examplemail.com')
 		conf.update( 'DocumentRoot /var/www/html' , '\t DocumentRoot /var/www/html/roundcube ')
 		conf.update( "ErrorLog" , "\t ErrorLog ${APACHE_LOG_DIR}/roundcube-error.log")
 		conf.update( 'CustomLog' , '\tCustomLog ${APACHE_LOG_DIR}/roundcube-access.log combined ')
@@ -56,16 +56,16 @@ def Install():
 
 	run('sudo DEBIAN_FRONTEND=noninteractive apt-get install postfix')
 	with ConfigFile('/etc/postfix/main.cf', use_sudo = True ) as conf:
-  		conf.update( 'mydestination' , 'mydestination = $myhostname, example.com, vagrant.vm, localhost.vm, localhost' )
-		conf.update( 'mynetworks' , 'mynetworks = 192.168.56.200, 127.0.0.0/8' )
-	run('echo "chipi" | sudo adduser chipi')# contraseña chipi
-	run('sudo usermod -aG sudo chipi')
-	run('echo "ernesto" | sudo adduser ernesto')# contraseña ernesto
-	run('sudo usermod -aG sudo ernesto')
+  		conf.update( 'mydestination' , 'mydestination = $myhostname, examplemail.com, vagrant.vm, localhost.vm, localhost' )
+		conf.update( 'mynetworks' , 'mynetworks = 192.168.56.101, 127.0.0.0/8' )
 
-	with ConfigFile('/etc/hosts', use_sudo = True ) as conf: 
-  		conf.update( 'finaldelarchivo' , '192.168.56.200  example.com' )
-		conf.update( 'finaldelarchivo' , '192.168.56.101  examplemail.com' )
+	run('echo "user1" | sudo adduser user1')# contraseña user1
+	run('sudo usermod -aG sudo user1')
+	run('echo "user2" | sudo adduser user2')# contraseña user2
+	run('sudo usermod -aG sudo user2')
 
+	with ConfigFile('/etc/hosts', use_sudo = True ) as conf:
+  		conf.update( 'finaldelarchivo' , '192.168.56.101  examplemail.com' )
+		conf.update( 'finaldelarchivo' , '192.168.56.200  example.com' )
 
 	run('sudo systemctl restart apache2')

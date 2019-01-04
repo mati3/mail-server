@@ -53,3 +53,16 @@ We have two users, mati and sammy, mati send an email to sammy:
 We view how sammy to receivent:
 
 ![image](/img/roundcube_03.png)
+
+
+***[To automate server installation and configuration](doc/automation.md)***
+
+Now that we have automated the installation and configuration of the server, we are going to mount two servers to see if they communicate.
+
+We just have to duplicate the tasks.
+
+[Issues to take into account to mount two servers.](doc/issues.md)
+
+As we can see the servers communicate properly.
+
+![image](/img/roundcube_04.png)
