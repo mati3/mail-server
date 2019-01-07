@@ -5,8 +5,6 @@ from fabric.api import *
 from fabric.contrib import files
 from util import * 
 
-# https://github.com/briancline/fabric-scripts/blob/master/appserver-php-ubuntu.py
-
 def Install():
 
 	run('sudo apt update')
