@@ -44,7 +44,7 @@ def Install():
 		conf.update( "ErrorLog" , "\t ErrorLog ${APACHE_LOG_DIR}/roundcube-error.log")
 		conf.update( 'CustomLog' , '\tCustomLog ${APACHE_LOG_DIR}/roundcube-access.log combined ')
 		conf.update( '</VirtualHost>' , '#add directory')
-		conf.update( 'alfinaldelfichero','\t<Directory /var/www/html/roundcube>\n\t\tOptions -Indexes \n\t\tAllowOverride All\n\t\tOrder allow,deny\n\t\tallow from all \n\t</Directory> \n</VirtualHost>')
+		conf.update( 'filend','\t<Directory /var/www/html/roundcube>\n\t\tOptions -Indexes \n\t\tAllowOverride All\n\t\tOrder allow,deny\n\t\tallow from all \n\t</Directory> \n</VirtualHost>')
 
 	run('sudo a2dissite 000-default')
 	run('sudo a2ensite roundcube')
@@ -57,13 +57,13 @@ def Install():
   		conf.update( 'mydestination' , 'mydestination = $myhostname, examplemail.com, vagrant.vm, localhost.vm, localhost' )
 		conf.update( 'mynetworks' , 'mynetworks = 192.168.56.101, 127.0.0.0/8' )
 
-	run('echo "user1" | sudo adduser user1')# contraseña user1
+	run('echo "user1" | sudo adduser user1')# password user1
 	run('sudo usermod -aG sudo user1')
-	run('echo "user2" | sudo adduser user2')# contraseña user2
+	run('echo "user2" | sudo adduser user2')# password user2
 	run('sudo usermod -aG sudo user2')
 
 	with ConfigFile('/etc/hosts', use_sudo = True ) as conf:
-  		conf.update( 'finaldelarchivo' , '192.168.56.101  examplemail.com' )
-		conf.update( 'finaldelarchivo' , '192.168.56.200  example.com' )
+  		conf.update( 'filend' , '192.168.56.101  examplemail.com' )
+		conf.update( 'filend' , '192.168.56.200  example.com' )
 
 	run('sudo systemctl restart apache2')
