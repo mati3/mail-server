@@ -7,7 +7,7 @@
 
     mv email-server email-second-server
 
-**Re-clone the repositorio**    
+**Re-clone the repository**    
 
     git clone https://github.com/mati3/mail-server.git
 
@@ -32,7 +32,7 @@
 
        config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "0.0.0.0"
        config.vm.network "private_network", ip: "192.168.56.200"
-       config.vm.network "forwarded_port", guest: 110, host: 1100 
+       config.vm.network "forwarded_port", guest: 110, host: 1100
        config.vm.network "forwarded_port", guest: 995, host: 9950
        config.vm.network "forwarded_port", guest: 143, host: 1430
        config.vm.network "forwarded_port", guest: 993, host: 9930
@@ -44,10 +44,10 @@
 
         (1)Search and changet this:
 
-            with ConfigFile('/etc/apache2/sites-available/roundcube.conf', use_sudo = True ) as conf: 
+            with ConfigFile('/etc/apache2/sites-available/roundcube.conf', use_sudo = True ) as conf:
                 conf.update( '#ServerName www.example.com' , '\tServerName 192.168.56.101' )
                 conf.update( 'ServerAdmin webmaster@localhost' , '\tServerAdmin examplemail.com')
-        (1)To this:
+        (1)For this:
 
             with ConfigFile('/etc/apache2/sites-available/roundcube.conf', use_sudo = True ) as conf:
                 conf.update( '#ServerName www.example.com' , '\tServerName 192.168.56.200' )
@@ -64,7 +64,7 @@
             run('echo "user2" | sudo adduser user2')# contraseña user2
             run('sudo usermod -aG sudo user2')
 
-        (2)To this:
+        (2)For this:
 
             with ConfigFile('/etc/postfix/main.cf', use_sudo = True ) as conf:
                 conf.update( 'mydestination' , 'mydestination = $myhostname, example.com, vagrant.vm, localhost.vm, localhost' )

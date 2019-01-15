@@ -1,19 +1,19 @@
 ## Install and configure a webmail.
 
-we are going to install a web email service, and for it, we need to undestand how is working.
+we are going to install a web email service, for it, we need to undestand how it works.
 
 ![image](/img/architecture.png)
 
 ###  Mail system architecture:
-	
-**Transfer agents (MTA)**, within of which we have:
 
-* Of distribution (SMTP). It send mail between servers.
-* Of end delivery (POR3, IMAP). They allow the user to manage his mail through a remote machine, that is, he communicates with his email server.
+**Transfer agents (MTA)**, inside of this we have:
+
+* MTA of distribution (SMTP). It send mails between servers.
+* MTA of end delivery (POP3, IMAP). them allow the user to manage his mail through a remote machine, that is, allow them to communicate with his email server.
 
 **User agents (MDA)**, is an application that works as a client, collects and sends email, there are different types of user agents for email:		
 
-* A email client aplication or MUA (Mail User Agent) allows you to store emails locally, not having to be connected to read them.
+* A email client aplication or MUA (Mail User Agent) allows you to store emails locally, not needing to be connected to read them.
 * A web interface, which is accessed with a web browser,  it is confortable because it allows you to view and store messages from anywhere, although it may be slower.
 
 ![image](/img/service_email.png)
@@ -37,27 +37,27 @@ we are going to install a web email service, and for it, we need to undestand ho
 
 
 
-The first that we have doing is install vagrand and create a file [vagrantfile](Vagrantfile), we have to open the ports that we need to all the protocols using. we give to the virtual machine the IP: 192.168.56.100 
+The first thing that we have doing is install vagrand and create a file [vagrantfile](Vagrantfile), we need to open the ports of all the protocols that we are using. we give to the virtual machine the IP: 192.168.56.100
 
 We install in our virtual machine: mysql, apache2, php, roundcube, dovecto, postfix and two user for send email betwen they. [Link to the extens explain](doc/configure.md)
 
 We put in the browser the address of our service 192.168.56.100.
-We enter with the user vagrant.
+We log in with the user vagrant.
 
 ![image](/img/roundcube_01.png)
 
-We have two users, mati and sammy, mati send an email to sammy:
+We have two users, mati and sammy. mati send an email to sammy:
 
 ![image](/img/roundcube_02.png)
 
-We view how sammy to receivent:
+We can see how sammy receive it:
 
 ![image](/img/roundcube_03.png)
 
 
 ***[To automate server installation and configuration](doc/automation.md)***
 
-Now that we have automated the installation and configuration of the server, we are going to mount two servers to see if they communicate.
+Now that we have automated the installation and configuration of the server, we are going to deploy two servers to check the communication between them.
 
 We just have to duplicate the tasks.
 
