@@ -1,11 +1,11 @@
 ## Install and configure a webmail.
 
-we are going to install a web email service, and for it, we need to undestand how is working.
+we are going to install a web email service, for it, we need to undestand how it works.
 
 ![image](/img/architecture.png)
 
 ###  Mail system architecture:
-	
+
 **Transfer agents (MTA)**, within of which we have:
 
 * Of distribution (SMTP). It send mail between servers.
@@ -37,7 +37,7 @@ we are going to install a web email service, and for it, we need to undestand ho
 
 
 
-The first that we have doing is install vagrand and create a file [vagrantfile](Vagrantfile), we have to open the ports that we need to all the protocols using. we give to the virtual machine the IP: 192.168.56.100 
+The first that we have doing is install vagrand and create a file [vagrantfile](Vagrantfile), we have to open the ports that we need to all the protocols using. we give to the virtual machine the IP: 192.168.56.100
 
 We install in our virtual machine: mysql, apache2, php, roundcube, dovecto, postfix and two user for send email betwen they. [Link to the extens explain](doc/configure.md)
 
